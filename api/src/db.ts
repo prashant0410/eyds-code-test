@@ -5,6 +5,7 @@ let client: pg.Client;
 
 export default async function connect() {
   if (!client) {
+    // we can fetch user and password from secret manager Ex: AWS secret manager
     const newClient = new pg.Client({
       user: 'admin',
       password: 'admin',

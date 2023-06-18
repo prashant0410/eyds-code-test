@@ -8,21 +8,21 @@ const app = express()
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(cors())
-
 const api = express.Router()
-
 api.get('/getBookings', async (res, req) => {
   const db = await connect()
   // Catch errors
   try {
+    // instead of using * we can be specific on feilds required
     const { rows } = await db.query(`SELECT * FROM bookings`)
     req.json(rows)
   } catch (ex) {
+    // we can also log this error for debugging
     req.json({ error: `Database Error!`, ...ex })
   }
 })
 
-api.post('/addBooking', async (req, res) => {
+api.post('/addBooking', async (req, res) => {  
   const db = await connect()
   // Catch errors
   try {

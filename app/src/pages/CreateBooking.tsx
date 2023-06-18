@@ -1,10 +1,14 @@
 import { useState } from "react"
 import { axios } from '../common'
 
+// todo: this can be handle in two ways
+//  1. Create seperate constant file (it will require code commits everytime we add new country.
+//  2. This can be fetched from database 
+
 const LOCATIONS = [
   'Vancouver', 'Victoria', 'Calgary', 'Toronto'
 ]
-
+// many review comments mentioned in bookingList applies to createbooking as well
 export default function CreateBooking() {
   const [errorMsg, setErrorMsg] = useState('')
   const [successMsg, setSuccessMsg] = useState('')
