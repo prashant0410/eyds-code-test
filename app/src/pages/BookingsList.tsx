@@ -2,8 +2,6 @@ import { axios } from '../common'
 import { useState } from 'react'
 import { Booking } from '../common'
 import dateToString from '../helpers/date'
-import moment from 'moment'
-
 
 // we must keep the rendering logic and css seperate to may be components/booking.js and move the fetch logic to pages/booking.js
 
