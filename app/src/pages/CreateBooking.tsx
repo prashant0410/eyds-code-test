@@ -1,10 +1,15 @@
 import { useState } from "react"
 import { axios } from '../common'
+import {LOCATIONS} from '../helpers/location'
 
-const LOCATIONS = [
-  'Vancouver', 'Victoria', 'Calgary', 'Toronto'
-]
+// todo: this can be handle in two ways
+//  1. Create seperate constant file (it will require code commits everytime we add new country.
+//  2. This can be fetched from database 
 
+// const LOCATIONS = [
+//   'Vancouver', 'Victoria', 'Calgary', 'Toronto'
+// ]
+// many review comments mentioned in bookingList applies to createbooking as well
 export default function CreateBooking() {
   const [errorMsg, setErrorMsg] = useState('')
   const [successMsg, setSuccessMsg] = useState('')
@@ -25,7 +30,7 @@ export default function CreateBooking() {
         Booking Date
       </div>
       <div className="col">
-        <input type="date" id="date"/>
+       <input type="date" id="date"/>
       </div>
     </div>
     <div className="row">
@@ -64,10 +69,12 @@ export default function CreateBooking() {
             
             if (bookingDate < new Date()) {
               showError('Cannot book in the past!')
+              return false;
             }
 
             if (!username) {
               showError('No username provided!')
+              return false;
             }
 
             axios
