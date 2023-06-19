@@ -1,4 +1,4 @@
 import moment from 'moment'
-const dateToString = date => moment(new Date(date).toDateString());
+const dateToString = date => moment(date).toDate().toDateString()
 
 export default dateToString;

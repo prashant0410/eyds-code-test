@@ -29,7 +29,7 @@ export default function CreateBooking() {
         Booking Date
       </div>
       <div className="col">
-        <input type="date" id="date"/>
+       <input type="date" id="date"/>
       </div>
     </div>
     <div className="row">
@@ -68,10 +68,12 @@ export default function CreateBooking() {
             
             if (bookingDate < new Date()) {
               showError('Cannot book in the past!')
+              return false;
             }
 
             if (!username) {
               showError('No username provided!')
+              return false;
             }
 
             axios

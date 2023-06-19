@@ -2,6 +2,8 @@ import { axios } from '../common'
 import { useState } from 'react'
 import { Booking } from '../common'
 import dateToString from '../helpers/date'
+import moment from 'moment'
+
 
 // we must keep the rendering logic and css seperate to may be components/booking.js and move the fetch logic to pages/booking.js
 
@@ -50,7 +52,7 @@ export default function BookingsList() {
       return (<div key={booking.id} className="row" style={{border: "1px solid black"}}>
         <div className="col">
           {/* seperate all resolvers into their own files and create reusable functions*/}
-          {dateToString(booking.createdDate).toLocaleString()}
+         {dateToString(booking.bookingDate)}
 
         </div>
         <div className="col">
